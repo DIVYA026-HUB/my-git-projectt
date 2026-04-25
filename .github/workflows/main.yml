@@ -1,25 +1,10 @@
-name: Python CI - Hello World
+name: CI
 
-on:
-push:
-branches: [ main ]
-pull_request:
-branches: [ main ]
+on: push
 
 jobs:
-build:
-runs-on: ubuntu-latest
-
-
-steps:
-  - name: Checkout code
-    uses: actions/checkout@v4
-
-  - name: Set up Python
-    uses: actions/setup-python@v5
-    with:
-      python-version: '3.12'
-
-  - name: Run hello.py
-    run: python hello.py
-
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python hello.py
